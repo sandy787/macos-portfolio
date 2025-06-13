@@ -8,7 +8,7 @@ interface DesktopIconsProps {
 }
 
 const icons = [
-  { label: 'Projects', icon: '📁' },
+  { label: 'Projects and Experience', icon: '📁' },
   { label: 'About Me', icon: '👤' },
   { label: 'Skills', icon: '🛠️' },
   { label: 'Contact', icon: '✉️' },

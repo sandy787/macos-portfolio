@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   margin: 18px 0 0 18px;
-  width: 72px;
+  width: 90px;
   cursor: pointer;
   user-select: none;
   outline: none;
@@ -22,10 +22,12 @@
   color: #fff;
   text-shadow: 0 1px 4px rgba(0,0,0,0.25);
   text-align: center;
-  word-break: break-word;
+  white-space: normal;
+  word-break: normal;
   padding: 2px 4px;
   border-radius: 4px;
   background: rgba(0,0,0,0.18);
+  max-width: 100%;
 }
 .desktop-icon:focus, .desktop-icon:hover {
   background: rgba(255,255,255,0.08);

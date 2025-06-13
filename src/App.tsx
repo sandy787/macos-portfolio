@@ -5,7 +5,7 @@ import { Dock } from './components/Dock';
 import { DesktopIcons } from './components/DesktopIcons';
 import { AppWindow } from './components/AppWindow';
 import { WeatherWidget } from './components/WeatherWidget';
-import { FaEnvelope, FaLinkedin, FaGithub, FaGlobe, FaCode, FaBrain, FaServer, FaDatabase, FaTools, FaPython, FaSwift, FaJava, FaHtml5, FaCss3Alt, FaJs, FaReact, FaGitAlt, FaFire, FaPuzzlePiece, FaCubes } from 'react-icons/fa';
+import { FaEnvelope, FaLinkedin, FaGithub, FaGlobe, FaCode, FaBrain, FaServer, FaDatabase, FaTools, FaPython, FaSwift, FaJava, FaHtml5, FaCss3Alt, FaJs, FaReact, FaGitAlt, FaFire, FaPuzzlePiece, FaCubes, FaBriefcase, FaEye } from 'react-icons/fa';
 
 const fakeFS: { [key: string]: string[] } = {
   '/': ['home', 'projects', 'about.txt'],
@@ -130,14 +130,83 @@ const TerminalWindow: React.FC = () => {
 };
 
 const APP_CONTENT: Record<string, React.ReactNode> = {
-  'Projects': <div>Project list goes here.</div>,
+  'Projects and Experience': (
+    <div style={{ padding: '25px', lineHeight: '1.6', color: '#333', fontSize: '15px', display: 'flex', flexDirection: 'column', gap: '25px', overflowY: 'scroll' }}>
+      <h2 style={{ margin: '0 0 10px 0', color: '#000', fontSize: '26px', fontWeight: 'bold', textAlign: 'center' }}>My Projects & Experience</h2>
+      <p style={{ textAlign: 'center', color: '#555', marginBottom: '20px' }}>A showcase of my recent work, personal initiatives, and professional journey.</p>
+
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px' }}>
+
+        {/* Experience: iOS Developer Intern at TORCHIT */}
+        <div style={{ backgroundColor: '#f8fafd', padding: '20px', borderRadius: '10px', boxShadow: '0 4px 15px rgba(0,0,0,0.08)', border: '1px solid #007bff' }}>
+          <h3 style={{ margin: '0 0 5px 0', color: '#007bff', fontSize: '20px', display: 'flex', alignItems: 'center' }}>
+            {/* @ts-ignore */}
+            <FaBriefcase style={{ marginRight: '8px', fontSize: '18px', color: '#007bff' }} />iOS Developer Intern
+          </h3>
+          <p style={{ margin: '0 0 10px 0', color: '#555', fontSize: '16px', fontWeight: 'bold' }}>@ TORCHIT</p>
+          <p style={{ margin: '0 0 15px 0', color: '#777', fontSize: '14px' }}>January 2025 - March 2025</p>
+          <ul style={{ listStyle: 'disc', paddingLeft: '20px', margin: 0 }}>
+            <li style={{ marginBottom: '8px' }}>Worked on <strong style={{ color: '#007bff' }}>Jyoti AI</strong>, developing and deploying <strong style={{ color: '#007bff' }}>Jyoti: AI Assistant for Blind</strong> to the App Store.</li>
+            <li style={{ marginBottom: '8px' }}>Implemented <strong style={{ color: '#007bff' }}>accessibility-first design, voice integration, and a user-friendly UI</strong>.</li>
+            <li style={{ marginBottom: '8px' }}>Integrated <strong style={{ color: '#007bff' }}>REST APIs</strong> for seamless functionality.</li>
+            <li style={{ marginBottom: '8px' }}>Achieved <strong style={{ color: '#007bff' }}>100+ downloads in the first month</strong>.</li>
+            <li style={{ marginBottom: '8px' }}>App Store Link: <a href="https://apps.apple.com/us/app/jyoti-ai-assistant-for-blind/id6475734267" target="_blank" rel="noopener noreferrer" style={{ color: '#007bff', textDecoration: 'none' }}>Jyoti AI Assistant for Blind</a></li>
+            <li>Tech Stack: <strong style={{ color: '#007bff' }}>Swift, SwiftUI, UIKit, CoreML, GCP, Firebase Realtime Database, Firestore, Firebase-Auth</strong>.</li>
+          </ul>
+        </div>
+
+        {/* Project: macOS Portfolio Website */}
+        <div style={{ backgroundColor: '#ffffff', padding: '20px', borderRadius: '10px', boxShadow: '0 4px 15px rgba(0,0,0,0.08)', border: '1px solid #eee' }}>
+          <h3 style={{ margin: '0 0 10px 0', color: '#007bff', fontSize: '20px', display: 'flex', alignItems: 'center' }}>
+            {/* @ts-ignore */}
+            <FaGlobe style={{ marginRight: '8px', fontSize: '18px', color: '#007bff' }} />macOS Portfolio Website
+          </h3>
+          <p style={{ margin: '0 0 10px 0', color: '#777', fontSize: '14px' }}>React, TypeScript, CSS</p>
+          <ul style={{ listStyle: 'disc', paddingLeft: '20px', margin: 0 }}>
+            <li style={{ marginBottom: '8px' }}>Developed a responsive and interactive macOS-themed portfolio website to showcase technical skills and projects.</li>
+            <li style={{ marginBottom: '8px' }}>Designed with a focus on user experience and a unique visual style, mimicking a desktop environment.</li>
+            <li>Live Demo: <a href="https://prajwalsanap.me" target="_blank" rel="noopener noreferrer" style={{ color: '#007bff', textDecoration: 'none' }}>prajwalsanap.me</a></li>
+          </ul>
+        </div>
+        
+        {/* Project: BlindGate */}
+        <div style={{ backgroundColor: '#ffffff', padding: '20px', borderRadius: '10px', boxShadow: '0 4px 15px rgba(0,0,0,0.08)', border: '1px solid #eee' }}>
+          <h3 style={{ margin: '0 0 10px 0', color: '#007bff', fontSize: '20px', display: 'flex', alignItems: 'center' }}>
+            {/* @ts-ignore */}
+            <FaEye style={{ marginRight: '8px', fontSize: '18px', color: '#007bff' }} />BlindGate
+          </h3>
+          <p style={{ margin: '0 0 10px 0', color: '#777', fontSize: '14px' }}>iOS, Swift, YOLOv5, AVFoundation, OpenCV</p>
+          <ul style={{ listStyle: 'disc', paddingLeft: '20px', margin: 0 }}>
+            <li style={{ marginBottom: '8px' }}>Developed an iOS app for the visually impaired by integrating <strong style={{ color: '#007bff' }}>YOLOv5 with real-time object detection</strong> and <strong style={{ color: '#007bff' }}>AVFoundation for audio descriptions</strong>.</li>
+            <li style={{ marginBottom: '8px' }}>Improved accessibility by providing <strong style={{ color: '#007bff' }}>instant feedback about surroundings through voice output</strong>.</li>
+            <li>GitHub Link: <a href="https://github.com/sandy787/BlindGate" target="_blank" rel="noopener noreferrer" style={{ color: '#007bff', textDecoration: 'none' }}>BlindGate</a></li>
+          </ul>
+        </div>
+
+        {/* Project: Emotion Analysis on Threads */}
+        <div style={{ backgroundColor: '#ffffff', padding: '20px', borderRadius: '10px', boxShadow: '0 4px 15px rgba(0,0,0,0.08)', border: '1px solid #eee' }}>
+          <h3 style={{ margin: '0 0 10px 0', color: '#007bff', fontSize: '20px', display: 'flex', alignItems: 'center' }}>
+            {/* @ts-ignore */}
+            <FaBrain style={{ marginRight: '8px', fontSize: '18px', color: '#007bff' }} />Emotion Analysis on Threads
+          </h3>
+          <p style={{ margin: '0 0 10px 0', color: '#777', fontSize: '14px' }}>Python, Transformers, NLTK, RapidAPI</p>
+          <ul style={{ listStyle: 'disc', paddingLeft: '20px', margin: 0 }}>
+            <li style={{ marginBottom: '8px' }}>Built a tool to analyze <strong style={{ color: '#007bff' }}>emotional tone in posts from Meta Threads</strong> using RapidAPI and a pre-trained emotion classification model.</li>
+            <li>Processed text using <strong style={{ color: '#007bff' }}>NLTK and Hugging Face Transformers</strong> for emotion tagging and sentiment classification.</li>
+            <li>GitHub Link: <a href="https://github.com/sandy787/Emotion_Detection" target="_blank" rel="noopener noreferrer" style={{ color: '#007bff', textDecoration: 'none' }}>EmotionDetection</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  ),
   'About Me': (
     <div style={{ padding: '20px', lineHeight: '1.7', color: '#222', fontSize: '15px' }}>
       <div style={{ display: 'flex', gap: '25px', alignItems: 'flex-start', marginBottom: '20px' }}>
         <img src="/PrajwalPhoto.png" alt="Prajwal Sanap" style={{ width: '160px', height: '160px', borderRadius: '10px', objectFit: 'cover', flexShrink: 0, boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }} />
-        <div>
+      <div>
           <h2 style={{ margin: '0 0 10px 0', color: '#000', fontSize: '24px', fontWeight: 'bold' }}>Hi, I'm Prajwal! 👋</h2>
-          <p style={{ margin: 0 }}>
+        <p style={{ margin: 0 }}>
             I'm a <strong style={{ color: '#007bff' }}>passionate and curious tech enthusiast</strong> with a deep interest in <strong style={{ color: '#007bff' }}>software development</strong>, especially in the <strong style={{ color: '#007bff' }}>Web and AI space</strong>. I thrive at the intersection of creativity and logic, where I love turning ideas into <strong style={{ color: '#007bff' }}>impactful applications</strong>. Over the years, I've explored diverse areas including <strong style={{ color: '#007bff' }}>iOS development, computer vision, and full-stack web projects</strong>, constantly pushing myself to learn and grow.
           </p>
         </div>
@@ -279,6 +348,26 @@ const APP_CONTENT: Record<string, React.ReactNode> = {
       </div>
     </div>
   ),
+  'Experience': (
+    <div style={{ padding: '25px', lineHeight: '1.6', color: '#333', fontSize: '15px', display: 'flex', flexDirection: 'column', gap: '25px' }}>
+      <h2 style={{ margin: '0 0 10px 0', color: '#000', fontSize: '26px', fontWeight: 'bold', textAlign: 'center' }}>My Experience</h2>
+      <p style={{ textAlign: 'center', color: '#555', marginBottom: '20px' }}>A summary of my professional journey and key roles.</p>
+
+      <div style={{ backgroundColor: '#ffffff', padding: '20px', borderRadius: '10px', boxShadow: '0 4px 15px rgba(0,0,0,0.08)', border: '1px solid #eee' }}>
+        <h3 style={{ margin: '0 0 10px 0', color: '#007bff', fontSize: '20px' }}>iOS Developer Intern at TORCHIT</h3>
+        <p style={{ margin: '0 0 15px 0', color: '#777', fontSize: '14px' }}>January 2025 - March 2025</p>
+        <ul style={{ listStyle: 'disc', paddingLeft: '20px', margin: 0 }}>
+          <li style={{ marginBottom: '8px' }}>Worked as an <strong style={{ color: '#007bff' }}>iOS Developer Intern</strong> on <strong style={{ color: '#007bff' }}>Jyoti AI</strong> at Torchit.</li>
+          <li style={{ marginBottom: '8px' }}>Developed and deployed an iOS application — <strong style={{ color: '#007bff' }}>Jyoti: AI Assistant for Blind</strong> — to the App Store.</li>
+          <li style={{ marginBottom: '8px' }}>Implemented <strong style={{ color: '#007bff' }}>accessibility-first design, voice integration, and a user-friendly UI</strong> to assist the users.</li>
+          <li style={{ marginBottom: '8px' }}>Collaborated with backend teams to integrate <strong style={{ color: '#007bff' }}>REST APIs</strong> and ensure seamless functionality.</li>
+          <li style={{ marginBottom: '8px' }}>Achieved over <strong style={{ color: '#007bff' }}>100+ downloads in the first month</strong>, with positive feedback from early users.</li>
+          <li style={{ marginBottom: '8px' }}>App Store Link: <a href="https://apps.apple.com/us/app/jyoti-ai-assistant-for-blind/id6475734267" target="_blank" rel="noopener noreferrer" style={{ color: '#007bff', textDecoration: 'none' }}>Jyoti AI Assistant for Blind</a></li>
+          <li>Tech Stack: <strong style={{ color: '#007bff' }}>Swift, SwiftUI, UIKit, CoreML, GCP, Firebase Realtime Database, Firestore, Firebase-Auth</strong>.</li>
+        </ul>
+      </div>
+    </div>
+  ),
   'Contact': (
     <div style={{ padding: '30px', lineHeight: '2', color: '#222', fontSize: '16px' }}>
       <h2 style={{ margin: '0 0 20px 0', color: '#000', fontSize: '24px', fontWeight: 'bold', textAlign: 'center' }}>Get in Touch!</h2>
@@ -351,13 +440,15 @@ function App() {
         {openWindows.map((app, i) => (
           <AppWindow
             key={app}
-            title={app}
+            title={app === 'Projects and Experience' ? 'Projects and Experience' : app}
             onClose={() => closeApp(app)}
             onMouseDown={() => focusApp(app)}
             initialPosition={{
               x: BASE_X + i * OFFSET,
               y: app === 'Resume' ? 10 : (
-                app === 'Skills' ? 10 : BASE_Y + i * OFFSET
+                app === 'Skills' ? 10 : (
+                  app === 'Experience' ? 10 : BASE_Y + i * OFFSET
+                )
               ),
             }}
             initialSize={
@@ -371,6 +462,10 @@ function App() {
                 ? { width: 550, height: 520 }
                 : app === 'Skills'
                 ? { width: 800, height: 700 }
+                : app === 'Experience'
+                ? { width: 800, height: 600 }
+                : app === 'Projects and Experience'
+                ? { width: 900, height: 650 }
                 : undefined
             }
           >

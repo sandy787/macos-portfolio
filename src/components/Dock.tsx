@@ -18,7 +18,6 @@ const dockIcons = [
 export const Dock: React.FC<DockProps> = ({ onOpenApp }) => {
   return (
     <div className="dock">
-      <span className="dock-icon" title="Finder" style={{ fontSize: 32 }}>🟦</span>
       {dockIcons.map(({ label, icon }) => (
         <span
           key={label}
