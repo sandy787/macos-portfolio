@@ -5,6 +5,7 @@ import { Dock } from './components/Dock';
 import { DesktopIcons } from './components/DesktopIcons';
 import { AppWindow } from './components/AppWindow';
 import { WeatherWidget } from './components/WeatherWidget';
+import { FaEnvelope, FaLinkedin, FaGithub, FaGlobe, FaCode, FaBrain, FaServer, FaDatabase, FaTools, FaPython, FaSwift, FaJava, FaHtml5, FaCss3Alt, FaJs, FaReact, FaGitAlt, FaFire, FaPuzzlePiece, FaCubes } from 'react-icons/fa';
 
 const fakeFS: { [key: string]: string[] } = {
   '/': ['home', 'projects', 'about.txt'],
@@ -131,23 +132,181 @@ const TerminalWindow: React.FC = () => {
 const APP_CONTENT: Record<string, React.ReactNode> = {
   'Projects': <div>Project list goes here.</div>,
   'About Me': (
-    <div style={{ display: 'flex', gap: '20px', alignItems: 'flex-start' }}>
-      <img src="/PrajwalPhoto.png" alt="Prajwal Sanap" style={{ width: '150px', height: '150px', borderRadius: '8px', objectFit: 'cover', flexShrink: 0 }} />
-      <div>
-        <p style={{ margin: 0 }}>
-          Hi, I'm Prajwal — a passionate and curious tech enthusiast with a deep interest in software development, especially in the Web and AI space. I thrive at the intersection of creativity and logic, where I love turning ideas into impactful applications. Over the years, I've explored diverse areas including iOS development, computer vision, and full-stack web projects, constantly pushing myself to learn and grow.
-        </p>
-        <p style={{ margin: '10px 0 0 0' }}>
-          Whether it's leading tech communities like GDSC as Lead, solving algorithmic problems (even when they're frustrating!), or building tools that make life easier for others, I believe in consistent effort, honesty, and learning through doing. Currently, I'm on a journey to sharpen my DSA skills and document the process transparently through my YouTube series Zero to Hero.
-        </p>
-        <p style={{ margin: '10px 0 0 0' }}>
-          Outside of code, I enjoy simplifying complex topics, guiding peers, and creating content that educates and inspires. I'm always open to collaboration, feedback, and new challenges!
-        </p>
+    <div style={{ padding: '20px', lineHeight: '1.7', color: '#222', fontSize: '15px' }}>
+      <div style={{ display: 'flex', gap: '25px', alignItems: 'flex-start', marginBottom: '20px' }}>
+        <img src="/PrajwalPhoto.png" alt="Prajwal Sanap" style={{ width: '160px', height: '160px', borderRadius: '10px', objectFit: 'cover', flexShrink: 0, boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }} />
+        <div>
+          <h2 style={{ margin: '0 0 10px 0', color: '#000', fontSize: '24px', fontWeight: 'bold' }}>Hi, I'm Prajwal! 👋</h2>
+          <p style={{ margin: 0 }}>
+            I'm a <strong style={{ color: '#007bff' }}>passionate and curious tech enthusiast</strong> with a deep interest in <strong style={{ color: '#007bff' }}>software development</strong>, especially in the <strong style={{ color: '#007bff' }}>Web and AI space</strong>. I thrive at the intersection of creativity and logic, where I love turning ideas into <strong style={{ color: '#007bff' }}>impactful applications</strong>. Over the years, I've explored diverse areas including <strong style={{ color: '#007bff' }}>iOS development, computer vision, and full-stack web projects</strong>, constantly pushing myself to learn and grow.
+          </p>
+        </div>
+      </div>
+      <p style={{ margin: '15px 0' }}>
+        Whether it's leading tech communities like <strong style={{ color: '#007bff' }}>GDSC as Lead</strong>, solving <strong style={{ color: '#007bff' }}>algorithmic problems</strong> (even when they're frustrating!), or building tools that make life easier for others, I believe in <strong style={{ color: '#007bff' }}>consistent effort, honesty, and learning through doing</strong>. Currently, I'm on a journey to sharpen my <strong style={{ color: '#007bff' }}>DSA skills</strong> and document the process transparently through my YouTube series <strong style={{ color: '#007bff' }}>Zero to Hero</strong>.
+      </p>
+      <p style={{ margin: '15px 0 0 0' }}>
+        Outside of code, I enjoy simplifying complex topics, guiding peers, and creating content that educates and inspires. I'm always open to <strong style={{ color: '#007bff' }}>collaboration, feedback, and new challenges!</strong>
+      </p>
+    </div>
+  ),
+  'Skills': (
+    <div style={{ padding: '25px', lineHeight: '1.6', color: '#333', fontSize: '15px', display: 'flex', flexDirection: 'column', gap: '25px' }}>
+      <h2 style={{ margin: '0 0 10px 0', color: '#000', fontSize: '26px', fontWeight: 'bold', textAlign: 'center' }}>My Technical Skills</h2>
+      <p style={{ textAlign: 'center', color: '#555', marginBottom: '15px' }}>A comprehensive look at my expertise across various domains.</p>
+      
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '15px' }}>
+        
+        {/* Languages */}
+        <div style={{ backgroundColor: '#ffffff', padding: '15px', borderRadius: '8px', boxShadow: '0 2px 10px rgba(0,0,0,0.06)', border: '1px solid #eee' }}>
+          <h3 style={{ margin: '0 0 12px 0', color: '#007bff', fontSize: '18px', borderBottom: '1px solid #007bff', paddingBottom: '5px' }}>Languages</h3>
+          <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+            <li style={{ marginBottom: '5px', display: 'flex', alignItems: 'center' }}>
+              {/* @ts-ignore */}
+              <FaPython style={{ color: '#306998', marginRight: '6px', fontSize: '14px' }} />Python
+            </li>
+            <li style={{ marginBottom: '5px', display: 'flex', alignItems: 'center' }}>
+              {/* @ts-ignore */}
+              <FaSwift style={{ color: '#F05138', marginRight: '6px', fontSize: '14px' }} />Swift
+            </li>
+            <li style={{ marginBottom: '5px', display: 'flex', alignItems: 'center' }}>
+              {/* @ts-ignore */}
+              <FaCode style={{ color: '#607D8B', marginRight: '6px', fontSize: '14px' }} />C/C++
+            </li>
+            <li style={{ marginBottom: '5px', display: 'flex', alignItems: 'center' }}>
+              {/* @ts-ignore */}
+              <FaDatabase style={{ color: '#4479A1', marginRight: '6px', fontSize: '14px' }} />SQL
+            </li>
+            <li style={{ marginBottom: '5px', display: 'flex', alignItems: 'center' }}>
+              {/* @ts-ignore */}
+              <FaJava style={{ color: '#007396', marginRight: '6px', fontSize: '14px' }} />Java
+            </li>
+            <li style={{ marginBottom: '5px', display: 'flex', alignItems: 'center' }}>
+              {/* @ts-ignore */}
+              <FaHtml5 style={{ color: '#E34C26', marginRight: '6px', fontSize: '14px' }} />HTML
+            </li>
+            <li style={{ marginBottom: '5px', display: 'flex', alignItems: 'center' }}>
+              {/* @ts-ignore */}
+              <FaCss3Alt style={{ color: '#1572B6', marginRight: '6px', fontSize: '14px' }} />CSS
+            </li>
+            <li style={{ display: 'flex', alignItems: 'center' }}>
+              {/* @ts-ignore */}
+              <FaJs style={{ color: '#F7DF1E', marginRight: '6px', fontSize: '14px' }} />JavaScript
+            </li>
+          </ul>
+        </div>
+
+        {/* Data Science & AI */}
+        <div style={{ backgroundColor: '#ffffff', padding: '15px', borderRadius: '8px', boxShadow: '0 2px 10px rgba(0,0,0,0.06)', border: '1px solid #eee' }}>
+          <h3 style={{ margin: '0 0 12px 0', color: '#007bff', fontSize: '18px', borderBottom: '1px solid #007bff', paddingBottom: '5px' }}>Data Science & AI</h3>
+          <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+            <li style={{ marginBottom: '5px', display: 'flex', alignItems: 'center' }}>
+              {/* @ts-ignore */}
+              <FaBrain style={{ color: '#673AB7', marginRight: '6px', fontSize: '14px' }} />Machine Learning (ML)
+            </li>
+            <li style={{ marginBottom: '5px', display: 'flex', alignItems: 'center' }}>
+              {/* @ts-ignore */}
+              <FaBrain style={{ color: '#673AB7', marginRight: '6px', fontSize: '14px' }} />Deep Learning (DL)
+            </li>
+            <li style={{ marginBottom: '5px', display: 'flex', alignItems: 'center' }}>
+              {/* @ts-ignore */}
+              <FaBrain style={{ color: '#673AB7', marginRight: '6px', fontSize: '14px' }} />Natural Language Processing (NLP)
+            </li>
+            <li style={{ display: 'flex', alignItems: 'center' }}>
+              {/* @ts-ignore */}
+              <FaBrain style={{ color: '#673AB7', marginRight: '6px', fontSize: '14px' }} />Data Analysis
+            </li>
+          </ul>
+        </div>
+
+        {/* Frameworks & Technologies */}
+        <div style={{ backgroundColor: '#ffffff', padding: '15px', borderRadius: '8px', boxShadow: '0 2px 10px rgba(0,0,0,0.06)', border: '1px solid #eee' }}>
+          <h3 style={{ margin: '0 0 12px 0', color: '#007bff', fontSize: '18px', borderBottom: '1px solid #007bff', paddingBottom: '5px' }}>Frameworks & Technologies</h3>
+          <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+            <li style={{ marginBottom: '5px', display: 'flex', alignItems: 'center' }}>
+              {/* @ts-ignore */}
+              <FaServer style={{ color: '#212121', marginRight: '6px', fontSize: '14px' }} />Flask
+            </li>
+            <li style={{ marginBottom: '5px', display: 'flex', alignItems: 'center' }}>
+              {/* @ts-ignore */}
+              <FaReact style={{ color: '#61DAFB', marginRight: '6px', fontSize: '14px' }} />React
+            </li>
+            <li style={{ marginBottom: '5px', display: 'flex', alignItems: 'center' }}>
+              {/* @ts-ignore */}
+              <FaGlobe style={{ color: '#009688', marginRight: '6px', fontSize: '14px' }} />REST API
+            </li>
+            <li style={{ display: 'flex', alignItems: 'center' }}>
+              {/* @ts-ignore */}
+              <FaCubes style={{ color: '#4CAF50', marginRight: '6px', fontSize: '14px' }} />Component-Based Design
+            </li>
+          </ul>
+        </div>
+
+        {/* Databases */}
+        <div style={{ backgroundColor: '#ffffff', padding: '15px', borderRadius: '8px', boxShadow: '0 2px 10px rgba(0,0,0,0.06)', border: '1px solid #eee' }}>
+          <h3 style={{ margin: '0 0 12px 0', color: '#007bff', fontSize: '18px', borderBottom: '1px solid #007bff', paddingBottom: '5px' }}>Databases</h3>
+          <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+            <li style={{ marginBottom: '5px', display: 'flex', alignItems: 'center' }}>
+              {/* @ts-ignore */}
+              <FaFire style={{ color: '#FFCA28', marginRight: '6px', fontSize: '14px' }} />Firebase
+            </li>
+            <li style={{ marginBottom: '5px', display: 'flex', alignItems: 'center' }}>
+              {/* @ts-ignore */}
+              <FaDatabase style={{ color: '#F29111', marginRight: '6px', fontSize: '14px' }} />MySQL
+            </li>
+            <li style={{ display: 'flex', alignItems: 'center' }}>
+              {/* @ts-ignore */}
+              <FaDatabase style={{ color: '#47A248', marginRight: '6px', fontSize: '14px' }} />MongoDB
+            </li>
+          </ul>
+        </div>
+
+        {/* Other Proficiencies */}
+        <div style={{ backgroundColor: '#ffffff', padding: '15px', borderRadius: '8px', boxShadow: '0 2px 10px rgba(0,0,0,0.06)', border: '1px solid #eee' }}>
+          <h3 style={{ margin: '0 0 12px 0', color: '#007bff', fontSize: '18px', borderBottom: '1px solid #007bff', paddingBottom: '5px' }}>Other Proficiencies</h3>
+          <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+            <li style={{ marginBottom: '5px', display: 'flex', alignItems: 'center' }}>
+              {/* @ts-ignore */}
+              <FaPuzzlePiece style={{ color: '#FF9800', marginRight: '6px', fontSize: '14px' }} />Data Structures & Algorithms
+            </li>
+            <li style={{ display: 'flex', alignItems: 'center' }}>
+              {/* @ts-ignore */}
+              <FaGitAlt style={{ color: '#F1502F', marginRight: '6px', fontSize: '14px' }} />Git & GitHub
+            </li>
+          </ul>
+        </div>
+
       </div>
     </div>
   ),
-  'Skills': <div>Skills content goes here.</div>,
-  'Contact': <div>Contact info goes here.</div>,
+  'Contact': (
+    <div style={{ padding: '30px', lineHeight: '2', color: '#222', fontSize: '16px' }}>
+      <h2 style={{ margin: '0 0 20px 0', color: '#000', fontSize: '24px', fontWeight: 'bold', textAlign: 'center' }}>Get in Touch!</h2>
+      <p style={{ textAlign: 'center', marginBottom: '30px', color: '#555' }}>I'm always excited to connect with new people and discuss potential collaborations.</p>
+      <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '15px' }}>
+        <li style={{ display: 'flex', alignItems: 'center', backgroundColor: '#f5f5f5', padding: '15px 20px', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
+          {/* @ts-ignore */}
+          <FaEnvelope style={{ marginRight: '15px', color: '#d44638', fontSize: '24px' }} />
+          <strong>Email:</strong> <a href="mailto:prajwalsanap123@gmail.com" style={{ color: '#007bff', textDecoration: 'none', marginLeft: '10px' }} onMouseOver={e => e.currentTarget.style.textDecoration='underline'} onMouseOut={e => e.currentTarget.style.textDecoration='none'}>prajwalsanap123@gmail.com</a>
+        </li>
+        <li style={{ display: 'flex', alignItems: 'center', backgroundColor: '#f5f5f5', padding: '15px 20px', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
+          {/* @ts-ignore */}
+          <FaLinkedin style={{ marginRight: '15px', color: '#0077B5', fontSize: '24px' }} />
+          <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/prajwalsanap/" target="_blank" rel="noopener noreferrer" style={{ color: '#007bff', textDecoration: 'none', marginLeft: '10px' }} onMouseOver={e => e.currentTarget.style.textDecoration='underline'} onMouseOut={e => e.currentTarget.style.textDecoration='none'}>linkedin.com/in/prajwalsanap</a>
+        </li>
+        <li style={{ display: 'flex', alignItems: 'center', backgroundColor: '#f5f5f5', padding: '15px 20px', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
+          {/* @ts-ignore */}
+          <FaGithub style={{ marginRight: '15px', color: '#333', fontSize: '24px' }} />
+          <strong>GitHub:</strong> <a href="https://github.com/sandy787" target="_blank" rel="noopener noreferrer" style={{ color: '#007bff', textDecoration: 'none', marginLeft: '10px' }} onMouseOver={e => e.currentTarget.style.textDecoration='underline'} onMouseOut={e => e.currentTarget.style.textDecoration='none'}>github.com/sandy787</a>
+        </li>
+        <li style={{ display: 'flex', alignItems: 'center', backgroundColor: '#f5f5f5', padding: '15px 20px', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
+          {/* @ts-ignore */}
+          <FaGlobe style={{ marginRight: '15px', color: '#1a73e8', fontSize: '24px' }} />
+          <strong>Portfolio:</strong> <a href="https://prajwalsanap.me" target="_blank" rel="noopener noreferrer" style={{ color: '#007bff', textDecoration: 'none', marginLeft: '10px' }} onMouseOver={e => e.currentTarget.style.textDecoration='underline'} onMouseOut={e => e.currentTarget.style.textDecoration='none'}>prajwalsanap.me</a>
+        </li>
+      </ul>
+    </div>
+  ),
   'Resume': null,
   'Terminal': <TerminalWindow />,
 };
@@ -197,9 +356,23 @@ function App() {
             onMouseDown={() => focusApp(app)}
             initialPosition={{
               x: BASE_X + i * OFFSET,
-              y: app === 'Resume' ? 10 : BASE_Y + i * OFFSET,
+              y: app === 'Resume' ? 10 : (
+                app === 'Skills' ? 10 : BASE_Y + i * OFFSET
+              ),
             }}
-            initialSize={app === 'Resume' ? { width: 800, height: Math.min(900, window.innerHeight - (40 + 70 + 20)) } : undefined}
+            initialSize={
+              app === 'Resume'
+                ? { width: 800, height: Math.min(900, window.innerHeight - (40 + 70 + 20)) }
+                : app === 'About Me'
+                ? { width: 800, height: 500 }
+                : app === 'Contact'
+                ? { width: 550, height: 520 }
+                : app === 'Terminal'
+                ? { width: 550, height: 520 }
+                : app === 'Skills'
+                ? { width: 800, height: 700 }
+                : undefined
+            }
           >
             {app === 'Resume' ? (
               <iframe

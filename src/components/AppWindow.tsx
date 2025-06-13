@@ -15,8 +15,6 @@ const MENU_BAR_HEIGHT = 10; // Height in px, consistent with MenuBar.css
 const DOCK_APPROX_HEIGHT = 70; // Approximate height of the dock for bottom clamping
 const WINDOW_VERTICAL_SAFE_MARGIN = 10; // General buffer for top/bottom window positioning
 
-const UI_VERTICAL_OFFSET = MENU_BAR_HEIGHT + DOCK_APPROX_HEIGHT + WINDOW_VERTICAL_SAFE_MARGIN;
-
 export const AppWindow: React.FC<AppWindowProps> = ({ title, onClose, children, initialPosition, initialSize, ...rest }) => {
   const windowRef = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({
