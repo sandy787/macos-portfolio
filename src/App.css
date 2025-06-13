@@ -2,6 +2,7 @@ body, html, #root, .macos-desktop {
   height: 100%;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 .macos-desktop {
   min-height: 100vh;
@@ -56,5 +57,34 @@ body, html, #root, .macos-desktop {
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .macos-desktop {
+    background-size: auto 100vh; /* Cover height, auto width */
+    background-position: top center; /* Align to top center */
+  }
+
+  /* Adjustments for AppWindow on mobile - these will need corresponding changes in AppWindow.tsx or App.tsx */
+  .app-window {
+    width: 95vw !important;
+    height: 85vh !important;
+    top: 5vh !important;
+    left: 2.5vw !important;
+    transform: none !important; /* Remove any previous transforms */
+  }
+
+  /* Hide desktop icons and dock for a cleaner mobile experience */
+  .desktop-icons-container,
+  .dock-container {
+    display: none;
+  }
+
+  /* Adjust menu bar on mobile if necessary, or simplify it */
+  .menu-bar {
+    font-size: 14px;
+    padding: 8px 10px;
   }
 }

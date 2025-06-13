@@ -29,9 +29,22 @@ export const AppWindow: React.FC<AppWindowProps> = ({ title, onClose, children, 
   });
   const [resizing, setResizing] = useState(false);
   const [resizeStart, setResizeStart] = useState({ x: 0, y: 0, width: 0, height: 0 });
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   // Drag logic
   const onMouseDownTitle = (e: React.MouseEvent) => {
+    if (isMobile) return; // Disable drag on mobile
     setDragging(true);
     setOffset({
       x: e.clientX - position.x,
@@ -63,6 +76,7 @@ export const AppWindow: React.FC<AppWindowProps> = ({ title, onClose, children, 
 
   // Clamp initial position on mount
   useEffect(() => {
+    if (isMobile) return; // No clamping for mobile, controlled by CSS
     setPosition((prev) => {
       const minY = MENU_BAR_HEIGHT;
       const maxY = window.innerHeight - size.height - DOCK_APPROX_HEIGHT - WINDOW_VERTICAL_SAFE_MARGIN;
@@ -73,10 +87,11 @@ export const AppWindow: React.FC<AppWindowProps> = ({ title, onClose, children, 
         y: Math.max(minY, Math.min(prev.y, maxY)),
       };
     });
-  }, [size]); // size dependency needed for accurate clamping
+  }, [size, isMobile]); // size dependency needed for accurate clamping
 
   // Resize logic
   const onMouseDownResize = (e: React.MouseEvent) => {
+    if (isMobile) return; // Disable resize on mobile
     e.stopPropagation();
     setResizing(true);
     setResizeStart({
@@ -105,11 +120,13 @@ export const AppWindow: React.FC<AppWindowProps> = ({ title, onClose, children, 
     }
   }, [resizing, resizeStart, position]); // position dependency added
 
+  const windowStyle = isMobile ? {} : { left: position.x, top: position.y, width: size.width, height: size.height };
+
   return (
     <div
-      className="app-window"
+      className={`app-window ${isMobile ? 'app-window-mobile' : ''}`}
       ref={windowRef}
-      style={{ left: position.x, top: position.y, width: size.width, height: size.height }}
+      style={windowStyle}
       onMouseDown={rest.onMouseDown}
       {...rest}
     >
