@@ -1,0 +1,57 @@
+.menu-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 28px;
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  font-size: 15px;
+}
+.menu-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-left: 16px;
+}
+.menu-bar-right {
+  margin-right: 16px;
+}
+.apple-logo {
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 8px;
+}
+.menu-item {
+  cursor: pointer;
+  padding: 2px 8px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+.menu-item:hover {
+  background: rgba(0,0,0,0.07);
+}
+.menu-time {
+  font-variant-numeric: tabular-nums;
+}
+.menu-app-name {
+  font-weight: bold;
+  margin-right: 12px;
+  margin-left: 6px;
+  color: #222;
+}
+.menu-status-icon {
+  margin: 0 6px;
+  font-size: 16px;
+  vertical-align: middle;
+}
+.menu-date {
+  margin: 0 8px;
+  font-size: 14px;
+  color: #444;
+} 

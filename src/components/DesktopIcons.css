@@ -1,0 +1,8 @@
+.desktop-icons {
+  position: absolute;
+  top: 48px;
+  left: 24px;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+} 

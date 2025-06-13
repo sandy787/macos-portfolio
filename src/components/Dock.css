@@ -1,0 +1,25 @@
+.dock {
+  position: fixed;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  padding: 8px 24px;
+  display: flex;
+  align-items: flex-end;
+  gap: 24px;
+  z-index: 1000;
+}
+.dock-icon {
+  font-size: 32px;
+  cursor: pointer;
+  transition: transform 0.15s;
+  user-select: none;
+}
+.dock-icon:hover {
+  transform: scale(1.18) translateY(-6px);
+  background: rgba(0,0,0,0.04);
+  border-radius: 8px;
+} 
