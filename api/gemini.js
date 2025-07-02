@@ -44,12 +44,13 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { message } = req.body || {};
-  console.log('Message received:', message);
+  const { history = [], input } = req.body || {};
+  console.log('History received:', history);
+  console.log('Input received:', input);
 
-  if (!message) {
-    console.log('No message provided');
-    return res.status(400).json({ error: 'No message provided' });
+  if (!input) {
+    console.log('No input provided');
+    return res.status(400).json({ error: 'No input provided' });
   }
 
   const apiKey = process.env.GEMINI_API_KEY;
@@ -57,6 +58,22 @@ export default async function handler(req, res) {
     console.log('API key not set');
     return res.status(500).json({ error: 'API key not set' });
   }
+
+  // Build the conversation for Gemini
+  const contents = [
+    {
+      role: 'user',
+      parts: [{ text: SIRI_CONTEXT }]
+    },
+    ...history.map(msg => ({
+      role: msg.sender === 'user' ? 'user' : 'model',
+      parts: [{ text: msg.text }]
+    })),
+    {
+      role: 'user',
+      parts: [{ text: input }]
+    }
+  ];
 
   try {
     const endpoint = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
@@ -67,14 +84,7 @@ export default async function handler(req, res) {
         'Content-Type': 'application/json',
         'X-goog-api-key': apiKey
       },
-      body: JSON.stringify({
-        contents: [
-          {
-            role: 'user',
-            parts: [{ text: SIRI_CONTEXT + '\n' + message }]
-          }
-        ]
-      }),
+      body: JSON.stringify({ contents }),
     };
     console.log('Fetch options:', fetchOptions);
     const geminiRes = await fetch(endpoint, fetchOptions);

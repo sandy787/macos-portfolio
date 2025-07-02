@@ -6,12 +6,12 @@ interface Message {
   text: string;
 }
 
-const geminiAPI = async (message: string): Promise<string> => {
+const geminiAPI = async (messages: Message[], input: string): Promise<string> => {
   try {
     const res = await fetch('/api/gemini', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message }),
+      body: JSON.stringify({ history: messages, input }),
     });
     if (!res.ok) throw new Error('Network response was not ok');
     const data = await res.json();
@@ -34,7 +34,7 @@ const SiriChatbot: React.FC = () => {
     const userMsg: Message = { sender: 'user', text: input };
     setMessages((msgs) => [...msgs, userMsg]);
     setInput('');
-    const siriReply = await geminiAPI(input);
+    const siriReply = await geminiAPI(messages, input);
     setMessages((msgs) => [...msgs, { sender: 'siri', text: siriReply }]);
   };
 
