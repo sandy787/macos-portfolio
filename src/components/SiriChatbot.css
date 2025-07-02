@@ -1,0 +1,106 @@
+.siri-launch-btn {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  background: radial-gradient(circle at 30% 30%, #a259ff, #3f2b96 80%);
+  border: none;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  box-shadow: 0 4px 16px rgba(80,0,120,0.2);
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 1000;
+  transition: box-shadow 0.2s;
+}
+.siri-launch-btn:hover {
+  box-shadow: 0 8px 32px rgba(80,0,120,0.3);
+}
+.siri-chatbot-window {
+  position: fixed;
+  width: 340px;
+  height: 440px;
+  background: rgba(40, 40, 60, 0.98);
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(80,0,120,0.3);
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  user-select: none;
+}
+.siri-header {
+  background: linear-gradient(90deg, #a259ff 0%, #3f2b96 100%);
+  color: white;
+  padding: 12px 16px;
+  font-weight: bold;
+  cursor: grab;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.1rem;
+}
+.siri-close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.3rem;
+  cursor: pointer;
+  margin-left: 8px;
+}
+.siri-messages {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  background: rgba(255,255,255,0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.siri-msg {
+  max-width: 80%;
+  padding: 10px 14px;
+  border-radius: 16px;
+  font-size: 1rem;
+  line-height: 1.4;
+  word-break: break-word;
+}
+.siri-msg-user {
+  align-self: flex-end;
+  background: linear-gradient(90deg, #a259ff 0%, #3f2b96 100%);
+  color: white;
+}
+.siri-msg-siri {
+  align-self: flex-start;
+  background: #f3f3fa;
+  color: #3f2b96;
+}
+.siri-input-row {
+  display: flex;
+  padding: 12px 16px;
+  background: rgba(255,255,255,0.07);
+  border-top: 1px solid rgba(160,89,255,0.08);
+}
+.siri-input-row input {
+  flex: 1;
+  border: none;
+  border-radius: 12px;
+  padding: 8px 12px;
+  font-size: 1rem;
+  margin-right: 8px;
+  outline: none;
+}
+.siri-input-row button {
+  background: linear-gradient(90deg, #a259ff 0%, #3f2b96 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 8px 16px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.siri-input-row button:hover {
+  background: #a259ff;
+} 

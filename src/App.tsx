@@ -6,6 +6,7 @@ import { DesktopIcons } from './components/DesktopIcons';
 import { AppWindow } from './components/AppWindow';
 import { WeatherWidget } from './components/WeatherWidget';
 import { FaEnvelope, FaLinkedin, FaGithub, FaGlobe, FaCode, FaBrain, FaServer, FaDatabase, FaTools, FaPython, FaSwift, FaJava, FaHtml5, FaCss3Alt, FaJs, FaReact, FaGitAlt, FaFire, FaPuzzlePiece, FaCubes, FaBriefcase, FaEye } from 'react-icons/fa';
+import SiriChatbot from './components/SiriChatbot';
 
 const fakeFS: { [key: string]: string[] } = {
   '/': ['home', 'projects', 'about.txt'],
@@ -432,55 +433,58 @@ function App() {
   };
 
   return (
-    <div className="macos-desktop">
-      <MenuBar activeApp={focusedApp || undefined} />
-      <WeatherWidget />
-      <div className="desktop-background">
-        <DesktopIcons onOpenApp={openApp} />
-        {openWindows.map((app, i) => (
-          <AppWindow
-            key={app}
-            title={app === 'Projects and Experience' ? 'Projects and Experience' : app}
-            onClose={() => closeApp(app)}
-            onMouseDown={() => focusApp(app)}
-            initialPosition={{
-              x: BASE_X + i * OFFSET,
-              y: app === 'Resume' ? 10 : (
-                app === 'Skills' ? 10 : (
-                  app === 'Experience' ? 10 : BASE_Y + i * OFFSET
-                )
-              ),
-            }}
-            initialSize={
-              app === 'Resume'
-                ? { width: 800, height: Math.min(900, window.innerHeight - (40 + 70 + 20)) }
-                : app === 'About Me'
-                ? { width: 800, height: 500 }
-                : app === 'Contact'
-                ? { width: 550, height: 520 }
-                : app === 'Terminal'
-                ? { width: 550, height: 520 }
-                : app === 'Skills'
-                ? { width: 800, height: 700 }
-                : app === 'Experience'
-                ? { width: 800, height: 600 }
-                : app === 'Projects and Experience'
-                ? { width: 900, height: 650 }
-                : undefined
-            }
-          >
-            {app === 'Resume' ? (
-              <iframe
-                src="/PrajwalSanapResume.pdf#toolbar=0"
-                title="Resume PDF"
-                style={{ width: '100%', height: '100%', border: 'none', minHeight: 400 }}
-              />
-            ) : (APP_CONTENT[app] || <div>App content</div>)}
-          </AppWindow>
-        ))}
+    <>
+      <div className="macos-desktop">
+        <MenuBar activeApp={focusedApp || undefined} />
+        <WeatherWidget />
+        <div className="desktop-background">
+          <DesktopIcons onOpenApp={openApp} />
+          {openWindows.map((app, i) => (
+            <AppWindow
+              key={app}
+              title={app === 'Projects and Experience' ? 'Projects and Experience' : app}
+              onClose={() => closeApp(app)}
+              onMouseDown={() => focusApp(app)}
+              initialPosition={{
+                x: BASE_X + i * OFFSET,
+                y: app === 'Resume' ? 10 : (
+                  app === 'Skills' ? 10 : (
+                    app === 'Experience' ? 10 : BASE_Y + i * OFFSET
+                  )
+                ),
+              }}
+              initialSize={
+                app === 'Resume'
+                  ? { width: 800, height: Math.min(900, window.innerHeight - (40 + 70 + 20)) }
+                  : app === 'About Me'
+                  ? { width: 800, height: 500 }
+                  : app === 'Contact'
+                  ? { width: 550, height: 520 }
+                  : app === 'Terminal'
+                  ? { width: 550, height: 520 }
+                  : app === 'Skills'
+                  ? { width: 800, height: 700 }
+                  : app === 'Experience'
+                  ? { width: 800, height: 600 }
+                  : app === 'Projects and Experience'
+                  ? { width: 900, height: 650 }
+                  : undefined
+              }
+            >
+              {app === 'Resume' ? (
+                <iframe
+                  src="/PrajwalSanapResume.pdf#toolbar=0"
+                  title="Resume PDF"
+                  style={{ width: '100%', height: '100%', border: 'none', minHeight: 400 }}
+                />
+              ) : (APP_CONTENT[app] || <div>App content</div>)}
+            </AppWindow>
+          ))}
+        </div>
+        <Dock onOpenApp={openApp} />
       </div>
-      <Dock onOpenApp={openApp} />
-    </div>
+      <SiriChatbot />
+    </>
   );
 }
 
