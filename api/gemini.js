@@ -13,6 +13,8 @@ export default async function handler(req, res) {
       return res.status(500).json({ error: 'API key not set' });
     }
   
+    console.log('GEMINI_API_KEY exists:', !!process.env.GEMINI_API_KEY);
+  
     try {
       const geminiRes = await fetch(
         'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=' + apiKey,
