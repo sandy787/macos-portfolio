@@ -69,8 +69,10 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         contents: [
-          { parts: [{ text: SIRI_CONTEXT }] }, // Siri system prompt
-          { parts: [{ text: message }] }        // User message
+          {
+            role: 'user',
+            parts: [{ text: SIRI_CONTEXT + '\n' + message }]
+          }
         ]
       }),
     };
